@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rahul Sai Telikicharla | Portfolio & AI Agent</title>
+    <title>Rahul Sai Telikicharla | AI Engineer & Data Scientist</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,15 +13,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            50: '#f0fdf4',
-                            100: '#dcfce7',
+                            50: '#ecfdf5',
+                            100: '#d1fae5',
+                            400: '#34d399',
                             500: '#10b981',
                             600: '#059669',
                             700: '#047857',
                             900: '#064e3b',
                         },
-                        darkBg: '#090d16',
-                        darkCard: '#111827',
+                        darkBg: '#030712',
+                        darkCard: '#0b0f19',
+                        accentTeal: '#06b6d4',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -31,43 +33,51 @@
         }
     </script>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #090d16;
+            background-color: #030712;
             color: #f3f4f6;
+        }
+        .mono-font {
+            font-family: 'JetBrains Mono', monospace;
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #090d16;
+            background: #030712;
         }
         ::-webkit-scrollbar-thumb {
-            background: #1f2937;
+            background: #111827;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
             background: #10b981;
         }
         .glow-effect:hover {
-            box-shadow: 0 0 20px rgba(16, 185, 129, 0.2);
+            box-shadow: 0 0 25px rgba(16, 185, 129, 0.25);
             border-color: rgba(16, 185, 129, 0.4);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
 <body class="min-h-screen flex flex-col selection:bg-brand-500 selection:text-white">
 
     <!-- Navigation Bar -->
-    <nav class="sticky top-0 z-50 backdrop-blur-md bg-darkBg/80 border-b border-gray-800 transition-all duration-300">
+    <nav class="sticky top-0 z-50 backdrop-blur-md bg-darkBg/90 border-b border-gray-900 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-3">
-                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-emerald-400 flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-brand-500/20">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 to-accentTeal flex items-center justify-center text-white font-extrabold text-lg shadow-lg shadow-brand-500/20">
                         RT
                     </div>
                     <span class="font-bold text-lg tracking-wide bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent hidden sm:block">
@@ -80,7 +90,7 @@
                     <a href="#projects" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Projects</a>
                     <a href="#skills" class="text-sm font-medium text-gray-300 hover:text-brand-500 transition-colors">Skills</a>
                     <a href="#ai-chat" class="hidden md:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-brand-500/10 border border-brand-500/30 text-brand-500 text-xs font-semibold hover:bg-brand-500/20 transition-all glow-effect">
-                        <i class="fa-solid fa-robot animate-pulse"></i> Ask AI Avatar
+                        <i class="fa-solid fa-robot animate-pulse"></i> Ask AI Representative
                     </a>
                 </div>
             </div>
@@ -88,41 +98,41 @@
     </nav>
 
     <!-- Hero / Intro Section -->
-    <header class="relative overflow-hidden pt-20 pb-16 border-b border-gray-800">
-        <!-- Visual background grid/blobs -->
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#0f172a_1px,transparent_1px),linear-gradient(to_bottom,#0f172a_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-60"></div>
-        <div class="absolute top-20 right-1/4 w-96 h-96 bg-brand-500/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
-        <div class="absolute -bottom-10 left-10 w-80 h-80 bg-emerald-500/5 rounded-full blur-3xl -z-10"></div>
+    <header id="about" class="relative overflow-hidden pt-24 pb-20 border-b border-gray-900">
+        <!-- Background accents -->
+        <div class="absolute inset-0 bg-[linear-gradient(to_right,#090d16_1px,transparent_1px),linear-gradient(to_bottom,#090d16_1px,transparent_1px)] bg-[size:4.5rem_4.5rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-70"></div>
+        <div class="absolute top-20 right-1/4 w-[500px] h-[500px] bg-brand-500/10 rounded-full blur-[120px] -z-10 animate-pulse"></div>
+        <div class="absolute -bottom-10 left-10 w-[400px] h-[400px] bg-accentTeal/5 rounded-full blur-[120px] -z-10"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 
                 <!-- Left Details Info -->
                 <div class="lg:col-span-7 space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-brand-500/10 border border-brand-500/30 text-brand-400 text-xs font-semibold">
                         <span class="w-2 h-2 rounded-full bg-brand-500 animate-ping"></span>
                         AI Engineering Intern @ HCA Healthcare
                     </div>
                     
                     <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-none">
-                        Building Robust <br class="hidden sm:inline">
-                        <span class="bg-gradient-to-r from-brand-500 via-emerald-400 to-teal-500 bg-clip-text text-transparent">
-                            AI & Systems
-                        </span> at Scale
+                        Engineering Trustworthy <br class="hidden sm:inline">
+                        <span class="gradient-text">
+                            GenAI & Scalable ML
+                        </span>
                     </h1>
                     
                     <p class="text-gray-400 text-lg leading-relaxed max-w-2xl">
-                        Master of Computer Science candidate at <strong class="text-white font-medium">Rice University</strong> (GPA 3.88). Specialized in fine-tuning domain-specific LLMs (Gemma, spaCy), architecting reliable RAG platforms, and model optimization for real-world deployments.
+                        Master of Computer Science candidate at <strong class="text-white font-medium">Rice University</strong> (GPA 3.88). Expert in building, evaluating, and serving robust intelligence architectures—spanning Vertex AI Model Garden, multi-framework LLM fine-tuning, automated dataset curation pipelines, and production systems.
                     </p>
 
                     <div class="flex flex-wrap gap-4 pt-2">
                         <a href="mailto:sairahul.2162@gmail.com" class="px-6 py-3 rounded-xl bg-gradient-to-r from-brand-600 to-emerald-500 hover:from-brand-500 hover:to-emerald-400 font-semibold text-sm transition-all shadow-lg shadow-brand-500/20 flex items-center gap-2">
                             <i class="fa-solid fa-envelope"></i> Contact Me
                         </a>
-                        <a href="https://github.com/rahulsai-mscs" target="_blank" class="px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-semibold text-sm transition-all flex items-center gap-2">
+                        <a href="https://github.com/rahulsai-mscs" target="_blank" class="px-6 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white font-semibold text-sm transition-all flex items-center gap-2">
                             <i class="fa-brands fa-github"></i> GitHub Profile
                         </a>
-                        <a href="https://www.linkedin.com/in/rahul-sai-34427b200/" target="_blank" class="px-6 py-3 rounded-xl bg-gray-800 hover:bg-gray-700 border border-gray-700 text-white font-semibold text-sm transition-all flex items-center gap-2">
+                        <a href="https://www.linkedin.com/in/rahul-sai-34427b200/" target="_blank" class="px-6 py-3 rounded-xl bg-gray-900 hover:bg-gray-800 border border-gray-800 text-white font-semibold text-sm transition-all flex items-center gap-2">
                             <i class="fa-brands fa-linkedin"></i> LinkedIn
                         </a>
                     </div>
@@ -130,33 +140,33 @@
 
                 <!-- Right Quick Summary card -->
                 <div class="lg:col-span-5">
-                    <div class="bg-darkCard/80 border border-gray-800 rounded-2xl p-6 backdrop-blur-xl relative">
-                        <div class="absolute -top-3 -right-3 w-12 h-12 bg-brand-500/20 rounded-full flex items-center justify-center border border-brand-500/30">
-                            <i class="fa-solid fa-code text-brand-500"></i>
+                    <div class="bg-darkCard/90 border border-gray-800 rounded-2xl p-6 backdrop-blur-xl relative">
+                        <div class="absolute -top-3 -right-3 w-12 h-12 bg-brand-500/15 rounded-full flex items-center justify-center border border-brand-500/30">
+                            <i class="fa-solid fa-brain text-brand-400"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-4 flex items-center gap-2">
-                            <i class="fa-solid fa-circle-nodes text-brand-500"></i> Tech Stack Overview
+                            <i class="fa-solid fa-network-wired text-brand-500"></i> Operational Footprint
                         </h3>
                         <div class="space-y-4 text-sm">
-                            <div class="flex items-center justify-between pb-2 border-b border-gray-800">
-                                <span class="text-gray-400">Primary Languages</span>
-                                <span class="font-semibold text-white">Python, SQL, C/C++, Java</span>
+                            <div class="flex items-center justify-between pb-2 border-b border-gray-900">
+                                <span class="text-gray-400">GenAI & LLM Orchestration</span>
+                                <span class="font-semibold text-white">LangChain, LlamaIndex, RAG</span>
                             </div>
-                            <div class="flex items-center justify-between pb-2 border-b border-gray-800">
-                                <span class="text-gray-400">Frameworks</span>
-                                <span class="font-semibold text-white">PyTorch, TensorFlow, Hugging Face</span>
+                            <div class="flex items-center justify-between pb-2 border-b border-gray-900">
+                                <span class="text-gray-400">Fine-Tuning Domain Expertise</span>
+                                <span class="font-semibold text-white">Gemma, Llama, spaCy, BERT, ClinicalBERT</span>
                             </div>
-                            <div class="flex items-center justify-between pb-2 border-b border-gray-800">
-                                <span class="text-gray-400">AI Specialization</span>
-                                <span class="font-semibold text-white">RAG, LLM Fine-Tuning, spaCy, GenAI</span>
+                            <div class="flex items-center justify-between pb-2 border-b border-gray-900">
+                                <span class="text-gray-400">Vertex AI Model Garden</span>
+                                <span class="font-semibold text-white">Gemini family, Custom API Serving</span>
                             </div>
-                            <div class="flex items-center justify-between pb-2 border-b border-gray-800">
-                                <span class="text-gray-400">Cloud & Data</span>
-                                <span class="font-semibold text-white">GCP Vertex AI, AWS, PySpark</span>
+                            <div class="flex items-center justify-between pb-2 border-b border-gray-900">
+                                <span class="text-gray-400">Distributed Data & Pipelines</span>
+                                <span class="font-semibold text-white">PySpark, SQL ETL, CI/CD, Data Curation</span>
                             </div>
                             <div class="flex items-center justify-between">
-                                <span class="text-gray-400">Optimization</span>
-                                <span class="font-semibold text-white">Quantization, Pruning, Distillation</span>
+                                <span class="text-gray-400">Optimization Parity</span>
+                                <span class="font-semibold text-white">Quantization, ONNX, Pruning</span>
                             </div>
                         </div>
                     </div>
@@ -166,23 +176,182 @@
         </div>
     </header>
 
-    <!-- GitHub Projects Section -->
-    <section id="projects" class="py-16 bg-darkBg">
+    <!-- Experience Section -->
+    <section id="experience" class="py-20 border-b border-gray-900 bg-[#040810]">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-4">
+            <div class="max-w-3xl mx-auto text-center mb-16">
+                <h2 class="text-3xl font-extrabold text-white">Professional Experience</h2>
+                <p class="text-gray-400 mt-2">Pioneering complex intelligence models and high-throughput data science pipelines</p>
+            </div>
+
+            <div class="max-w-4xl mx-auto relative border-l border-gray-800 pl-6 sm:pl-10 space-y-16">
+                
+                <!-- Experience Item 1: HCA Healthcare -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-brand-500 border-4 border-[#040810] flex items-center justify-center"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">AI Engineering Intern</h3>
+                            <span class="text-brand-400 font-semibold text-sm">HCA Healthcare</span>
+                        </div>
+                        <span class="px-3.5 py-1 rounded-full bg-brand-500/10 text-brand-400 text-xs font-semibold self-start sm:self-auto border border-brand-500/20">
+                            Feb 2026 -- Present
+                        </span>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-400 text-sm list-disc pl-4">
+                        <li>Engineered and <strong class="text-white">fine-tuned domain-specific LLMs </strong> for high-fidelity enterprise medical summary generation, systematically eliminating hallucinations.</li>
+                        <li>Configured and evaluated custom <strong class="text-white"> model fine-tuning</strong> to parse clinical terms, improving system-level accuracy for nurses' clinical documentation.</li>
+                        <li>Utilized <strong class="text-white">GCP Vertex AI Model Garden</strong> to curate and test Gemini models, configuring optimized parameters for secure clinical RAG operations.</li>
+                        <li>Led specialized <strong class="text-white">clinical data research and dataset curation pipelines</strong>, structuring messy, heterogeneous EHR records to prepare them for ClinicalBERT text mining and classification tasks.</li>
+                        <li>Built end-to-end orchestration workflows using <strong class="text-white">LangChain and LlamaIndex</strong> for semantic indexing, vector store routing, and dynamic contextual chunking.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 2: eFunder.ai -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-accentTeal border-4 border-[#040810] flex items-center justify-center"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Machine Learning Engineer (Data Scientist)</h3>
+                            <span class="text-accentTeal font-semibold text-sm">Zelo</span>
+                        </div>
+                        <span class="px-3.5 py-1 rounded-full bg-accentTeal/10 text-accentTeal text-xs font-semibold self-start sm:self-auto border border-accentTeal/20">
+                            Apr 2024 -- Nov 2024
+                        </span>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-400 text-sm list-disc pl-4">
+                        <li>Developed and optimized predictive time-series architectures (LSTM, ARIMA) on <strong class="text-white">GCP</strong>, improving credit assessment forecasting accuracy by <strong class="text-white">18%</strong>.</li>
+                        <li>Engineered scalable ETL pipeline modules utilizing <strong class="text-white">PySpark</strong> to clean and process <strong class="text-white">500K+ transactional records</strong>.</li>
+                        <li>Applied ensemble learning paradigms and robust statistical validation routines, decreasing investment risk profiles by <strong class="text-white">22%</strong>.</li>
+                        <li>Integrated post-training model compression techniques including **quantization and structural pruning**, reducing production system latency by 15%.</li>
+                    </ul>
+                </div>
+
+                <!-- Experience Item 3: Re Sustainability -->
+                <div class="relative">
+                    <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-cyan-500 border-4 border-[#040810] flex items-center justify-center"></span>
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                        <div>
+                            <h3 class="text-2xl font-bold text-white">Data Analyst</h3>
+                            <span class="text-cyan-400 font-semibold text-sm">Re Sustainability Middle East FZ-LLC</span>
+                        </div>
+                        <span class="px-3.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold self-start sm:self-auto border border-cyan-500/20">
+                            Jan 2024 -- Apr 2024
+                        </span>
+                    </div>
+                    <ul class="space-y-3.5 text-gray-400 text-sm list-disc pl-4">
+                        <li>Cleaned and curated complex datasets exceeding <strong class="text-white">1 Million records</strong>, enhancing downstream modeling and analytics efficiency by <strong class="text-white">30%</strong>.</li>
+                        <li>Developed SQL-backed analytics pipelines supporting customer behavior clustering, regression analysis, and structural reporting.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Architecture Section -->
+    <section id="skills" class="py-20 bg-darkBg border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-extrabold text-white">Interactive Skills Architecture</h2>
+                <p class="text-gray-400 mt-2">Comprehensive stack detailing frameworks, modeling methodologies, and data science platforms</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- Category 1 -->
+                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl relative overflow-hidden group hover:border-brand-500/40 transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-brand-500"></div>
+                    <h3 class="font-bold text-white mb-4 flex items-center gap-2.5">
+                        <i class="fa-solid fa-robot text-brand-400"></i> Generative AI & LLMs
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">LangChain</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">LlamaIndex</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">RAG Architectures</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Gemma Fine-Tuning</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">spaCy (Clinical)</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Vertex AI Model Garden</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Gemini Family</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">BERT & DistilBERT</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">ClinicalBERT</span>
+                    </div>
+                </div>
+
+                <!-- Category 2 -->
+                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl relative overflow-hidden group hover:border-accentTeal/40 transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-accentTeal"></div>
+                    <h3 class="font-bold text-white mb-4 flex items-center gap-2.5">
+                        <i class="fa-solid fa-brain text-accentTeal"></i> Deep Learning & Vision
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">PyTorch</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">TensorFlow / Keras</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">YOLOv8 Edge</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">CNNs & LSTMs</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">OpenCV Preprocessing</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Sequence Modeling</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Hugging Face Hub</span>
+                    </div>
+                </div>
+
+                <!-- Category 3 -->
+                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl relative overflow-hidden group hover:border-cyan-500/40 transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-cyan-500"></div>
+                    <h3 class="font-bold text-white mb-4 flex items-center gap-2.5">
+                        <i class="fa-solid fa-chart-line text-cyan-400"></i> Data Science & Big Data
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">PySpark (Distributed)</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Dataset Curation</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Clinical Data Research</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">MySQL & PostgreSQL</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">ETL Pipelines</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Time-Series (ARIMA)</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Unsupervised (K-Means)</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">DBSCAN Clustering</span>
+                    </div>
+                </div>
+
+                <!-- Category 4 -->
+                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl relative overflow-hidden group hover:border-emerald-400/40 transition-all duration-300">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-emerald-400"></div>
+                    <h3 class="font-bold text-white mb-4 flex items-center gap-2.5">
+                        <i class="fa-solid fa-layer-group text-emerald-400"></i> Cloud & Systems
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Google Cloud (GCP)</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Vertex AI Suite</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">AWS Ecosystem</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Docker Containers</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Model Quantization</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Model Pruning</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">ONNX Conversion</span>
+                        <span class="px-2 py-1 rounded bg-gray-900 text-xs text-gray-300">Linux CLI</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- GitHub & Dynamic Projects Section -->
+    <section id="projects" class="py-20 bg-[#040810] border-b border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
                     <h2 class="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                        <i class="fa-brands fa-github text-brand-500"></i> Open-Source & Repositories
+                        <i class="fa-brands fa-github text-brand-500"></i> Codebases & Research Projects
                     </h2>
                     <p class="text-gray-400 mt-2 max-w-2xl">
-                        Discover codebases, machine learning models, and utilities loaded directly from GitHub or crafted with custom high-fidelity details.
+                        A synthesis of live open-source code repositories fetched straight from the GitHub API alongside featured machine learning architectures.
                     </p>
                 </div>
                 <!-- Dynamic search/filter -->
                 <div class="flex items-center gap-3">
                     <div class="relative">
-                        <input type="text" id="repo-search" placeholder="Search repositories..." class="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all w-64">
-                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3 text-gray-500 text-xs"></i>
+                        <input type="text" id="repo-search" placeholder="Search stack or name..." class="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all w-64">
+                        <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
                     </div>
                     <button id="refresh-repos" class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl hover:bg-gray-800 text-gray-400 hover:text-white transition-all" title="Reload repositories">
                         <i class="fa-solid fa-rotate"></i>
@@ -193,7 +362,7 @@
             <!-- Loader -->
             <div id="repo-loader" class="flex flex-col items-center justify-center py-20 gap-4">
                 <div class="w-12 h-12 border-4 border-brand-500/20 border-t-brand-500 rounded-full animate-spin"></div>
-                <span class="text-sm text-gray-400">Fetching live projects from GitHub API...</span>
+                <span class="text-sm text-gray-400">Connecting to GitHub REST API...</span>
             </div>
 
             <!-- Repos Grid -->
@@ -203,103 +372,46 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 border-t border-gray-800 bg-[#070b12]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center mb-12">
-                <h2 class="text-3xl font-extrabold text-white">Professional Experience</h2>
-                <p class="text-gray-400 mt-2">Where ML theory meets real-world deployment constraints</p>
-            </div>
-
-            <div class="max-w-4xl mx-auto relative border-l-2 border-gray-800 pl-6 sm:pl-10 space-y-12">
-                
-                <!-- Experience Item 1 -->
-                <div class="relative">
-                    <!-- Dot icon -->
-                    <span class="absolute -left-[37px] sm:-left-[53px] top-1.5 w-6 h-6 rounded-full bg-brand-500 border-4 border-[#070b12] flex items-center justify-center">
-                        <i class="fa-solid fa-hospital text-[9px] text-white"></i>
-                    </span>
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">AI Engineering Intern</h3>
-                            <span class="text-brand-500 font-semibold text-sm">HCA Healthcare</span>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-500 text-xs font-semibold self-start sm:self-auto">
-                            Feb 2026 -- Present
-                        </span>
-                    </div>
-                    <ul class="space-y-2 text-gray-400 text-sm list-disc pl-4">
-                        <li>Engineered and <strong class="text-white">fine-tuned domain-specific LLMs (Gemma)</strong> for healthcare diagnostics and clinical data analysis.</li>
-                        <li>Configured targeted <strong class="text-white">spaCy model fine-tuning</strong> to recognize clinical vocabulary, reducing extraction errors in notes.</li>
-                        <li>Built and deployed scalable RAG pipelines on <strong class="text-white">GCP Vertex AI</strong> for high-fidelity information retrieval.</li>
-                    </ul>
-                </div>
-
-                <!-- Experience Item 2 -->
-                <div class="relative">
-                    <span class="absolute -left-[37px] sm:-left-[53px] top-1.5 w-6 h-6 rounded-full bg-emerald-500 border-4 border-[#070b12] flex items-center justify-center">
-                        <i class="fa-solid fa-chart-line text-[9px] text-white"></i>
-                    </span>
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
-                        <div>
-                            <h3 class="text-xl font-bold text-white">Machine Learning Engineer (Data Scientist)</h3>
-                            <span class="text-emerald-500 font-semibold text-sm">Zelo</span>
-                        </div>
-                        <span class="px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-500 text-xs font-semibold self-start sm:self-auto">
-                            Apr 2024 -- Nov 2024
-                        </span>
-                    </div>
-                    <ul class="space-y-2 text-gray-400 text-sm list-disc pl-4">
-                        <li>Designed and optimized time-series ML models (LSTM, ARIMA) on <strong class="text-white">GCP</strong>, improving forecasting accuracy by <strong class="text-white">18%</strong>.</li>
-                        <li>Engineered scalable pipeline code using <strong class="text-white">PySpark</strong> processing 500K+ entries.</li>
-                        <li>Reduced investment risks by 22% and enhanced system latency by 15% via model quantization and pruning.</li>
-                    </ul>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
     <!-- AI Avatar Assistant Section -->
-    <section id="ai-chat" class="py-16 bg-darkBg border-t border-gray-800">
+    <section id="ai-chat" class="py-20 bg-darkBg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
                 
                 <!-- Left descriptive panel -->
                 <div class="lg:col-span-5 flex flex-col justify-center space-y-6">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-500 text-xs font-semibold self-start">
-                        <i class="fa-solid fa-bolt animate-bounce"></i> Real-time LLM agent
+                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-400 text-xs font-semibold self-start">
+                        <i class="fa-solid fa-bolt animate-bounce"></i> LLM Assistant Representative
                     </div>
                     <h2 class="text-3xl font-extrabold text-white leading-tight">
-                        Interactive <br>
-                        <span class="bg-gradient-to-r from-brand-500 to-emerald-400 bg-clip-text text-transparent">AI Interviewer Avatar</span>
+                        Instant Interviewer <br>
+                        <span class="gradient-text">Conversational Avatar</span>
                     </h2>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        Have custom questions about my research, background, or fit for your open roles? Chat directly with an intelligent digital replica powered by Gemini. Ask things like:
+                        Inquire directly regarding my technical execution, research at Rice, or fit for active engineering roles. This interactive representative is grounded in real experience and credentials.
                     </p>
                     <div class="space-y-2.5">
-                        <button onclick="askPreset('What projects did Rahul build for machine learning?')" class="w-full text-left p-3 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
-                            <span>"What projects did Rahul build for machine learning?"</span>
+                        <button onclick="askPreset('Detail Rahul\'s work with clinical dataset curation and spaCy at HCA Healthcare.')" class="w-full text-left p-3.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
+                            <span>"Detail Rahul's work with clinical datasets & spaCy at HCA."</span>
                             <i class="fa-solid fa-chevron-right text-brand-500 text-[10px]"></i>
                         </button>
-                        <button onclick="askPreset('Tell me about his current HCA Healthcare internship.')" class="w-full text-left p-3 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
-                            <span>"Tell me about his current HCA Healthcare internship."</span>
+                        <button onclick="askPreset('How does he use LangChain and LlamaIndex for summaries?')" class="w-full text-left p-3.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
+                            <span>"How does he use LangChain and LlamaIndex for summaries?"</span>
                             <i class="fa-solid fa-chevron-right text-brand-500 text-[10px]"></i>
                         </button>
-                        <button onclick="askPreset('What skills are in Rahul\'s tech stack?')" class="w-full text-left p-3 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
-                            <span>"What skills are in Rahul's tech stack?"</span>
+                        <button onclick="askPreset('What tools did he leverage at eFunder for dataset preprocessing?')" class="w-full text-left p-3.5 rounded-xl bg-gray-900 border border-gray-800 text-xs text-gray-300 hover:border-brand-500 hover:text-white transition-all flex items-center justify-between">
+                            <span>"What tools did he leverage at eFunder for preprocessing?"</span>
                             <i class="fa-solid fa-chevron-right text-brand-500 text-[10px]"></i>
                         </button>
                     </div>
                 </div>
 
                 <!-- Right chat console panel -->
-                <div class="lg:col-span-7 flex flex-col h-[500px] border border-gray-800 rounded-2xl bg-darkCard/80 overflow-hidden relative shadow-2xl">
+                <div class="lg:col-span-7 flex flex-col h-[520px] border border-gray-800 rounded-2xl bg-darkCard/85 overflow-hidden relative shadow-2xl">
                     <!-- Chat Header -->
                     <div class="px-6 py-4 bg-gray-950 border-b border-gray-800 flex items-center justify-between">
                         <div class="flex items-center gap-3">
                             <div class="relative">
-                                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-emerald-400 flex items-center justify-center text-white font-bold">
+                                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-accentTeal flex items-center justify-center text-white font-bold">
                                     <i class="fa-solid fa-robot"></i>
                                 </div>
                                 <span class="absolute bottom-0 right-0 w-3 h-3 rounded-full bg-brand-500 border-2 border-gray-950"></span>
@@ -307,7 +419,7 @@
                             <div>
                                 <h4 class="text-sm font-bold text-white">Rahul's AI Representative</h4>
                                 <span class="text-xs text-gray-500 flex items-center gap-1">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span> Online & Listening
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse"></span> Online & Operational
                                 </span>
                             </div>
                         </div>
@@ -321,7 +433,7 @@
                                 <i class="fa-solid fa-robot"></i>
                             </div>
                             <div class="p-4 bg-gray-900 border border-gray-800 rounded-2xl rounded-bl-none text-gray-300 leading-relaxed">
-                                Hi there! I'm Rahul's custom-trained AI assistant. I have full knowledge of his educational background at Rice University, his engineering contributions at HCA Healthcare and eFunder.ai, and his publication record. Go ahead and ask me anything!
+                                Welcome! I represent Rahul's AI & systems background. Ask me anything about his work with ClinicalBERT, Gemma models, GCP Vertex AI Garden, dataset curation, LlamaIndex, or his mathematical optimization pipelines!
                             </div>
                         </div>
                     </div>
@@ -341,96 +453,35 @@
                             <span class="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style="animation-delay: 0.2s"></span>
                             <span class="w-1.5 h-1.5 bg-brand-500 rounded-full animate-bounce" style="animation-delay: 0.3s"></span>
                         </div>
-                        <span>Rahul's Avatar is thinking...</span>
+                        <span>Formulating response...</span>
                     </div>
                 </div>
 
-            </div>
-        </div>
-    </section>
-
-    <!-- Tech Stack Grid Section -->
-    <section id="skills" class="py-16 border-t border-gray-800 bg-[#070b12]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-12">
-                <h2 class="text-3xl font-extrabold text-white">Interactive Skills Architecture</h2>
-                <p class="text-gray-400 mt-2">Comprehensive inventory of technologies, platforms, and methodologies</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Skill card 1 -->
-                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl">
-                    <h3 class="font-bold text-white mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-brain text-brand-500"></i> AI & Deep Learning
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">PyTorch</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">TensorFlow</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Keras</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Hugging Face</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">BERT & DistilBERT</span>
-                    </div>
-                </div>
-
-                <!-- Skill card 2 -->
-                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl">
-                    <h3 class="font-bold text-white mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-code text-emerald-400"></i> Development Languages
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Python</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">SQL</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Java</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">C/C++</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">R</span>
-                    </div>
-                </div>
-
-                <!-- Skill card 3 -->
-                <div class="p-6 bg-darkCard border border-gray-800 rounded-xl">
-                    <h3 class="font-bold text-white mb-4 flex items-center gap-2">
-                        <i class="fa-solid fa-server text-teal-400"></i> Systems & Cloud
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Google Cloud (GCP)</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Vertex AI</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">AWS Foundations</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Docker</span>
-                        <span class="px-2.5 py-1 rounded-lg bg-gray-900 border border-gray-800 text-xs text-gray-300">Linux CLI</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="mt-auto py-12 border-t border-gray-800 bg-darkBg text-center">
-        <p class="text-sm text-gray-500">
-            &copy; 2026 Rahul Sai Telikicharla. All rights reserved. Built with Tailwind CSS.
+    <footer class="mt-auto py-12 border-t border-gray-900 bg-darkBg text-center">
+        <p class="text-sm text-gray-600">
+            &copy; 2026 Rahul Sai Telikicharla. All rights reserved.
         </p>
     </footer>
 
     <script>
-        // High fidelity mock data to supplement or fallback for GitHub profile repositories
+        // Highly granular, expanded mock projects showing full range of tools, data curation and GenAI framework usage
         const mockRepos = [
+
             {
                 name: "Vehicle-Number-Plate-Detection",
-                description: "Real-time edge-optimized YOLOv8 computer vision model integrated with an advanced OCR module, clocking a solid 30 FPS under dynamic low-resource settings.",
+                description: "Edge-deployable computer vision suite featuring YOLOv8 and an advanced OCR parsing model. Handled custom frame optimization and multithreading pipelines to achieve a solid 30 FPS.",
                 language: "Python",
                 html_url: "https://github.com/rahulsai-mscs",
                 stargazers_count: 14,
                 forks_count: 3,
                 topics: ["yolov8", "ocr", "computer-vision", "multithreading"]
             },
-            {
-                name: "Customer-Feedback-Sentiment-Analysis",
-                description: "Deep fine-tuning research utilizing BERT and DistilBERT models with PyTorch. Includes custom pipeline components mimicking RAG systems.",
-                language: "Python",
-                html_url: "https://github.com/rahulsai-mscs",
-                stargazers_count: 11,
-                forks_count: 4,
-                topics: ["bert", "nlp", "transformers", "flask"]
-            }
+
         ];
 
         let loadedRepos = [];
@@ -444,10 +495,9 @@
 
             try {
                 const response = await fetch(url);
-                if (!response.ok) throw new Error("API rate limits or non-existent profile");
+                if (!response.ok) throw new Error("API Limit reached");
                 const data = await response.json();
                 
-                // Combine and unique real repos + high-fidelity custom mock repos
                 const realRepos = data.map(repo => ({
                     name: repo.name,
                     description: repo.description || "No description provided.",
@@ -458,7 +508,6 @@
                     topics: repo.topics || []
                 }));
 
-                // Deduplicate by name favoring mock detail structure
                 const merged = [...mockRepos];
                 realRepos.forEach(real => {
                     if (!merged.some(m => m.name.toLowerCase() === real.name.toLowerCase())) {
@@ -469,7 +518,7 @@
                 loadedRepos = merged;
                 renderRepos(loadedRepos);
             } catch (err) {
-                console.warn("Could not load real GitHub repos, utilizing fallback mock database:", err);
+                console.warn("Using fallback dataset due to GitHub limits:", err);
                 loadedRepos = mockRepos;
                 renderRepos(loadedRepos);
             } finally {
@@ -485,9 +534,9 @@
 
             if (repos.length === 0) {
                 grid.innerHTML = `
-                    <div class="col-span-full text-center py-12 text-gray-500">
+                    <div class="col-span-full text-center py-12 text-gray-600">
                         <i class="fa-solid fa-folder-open text-3xl mb-3 block"></i>
-                        No repositories found matching that query.
+                        No repositories matching that search query.
                     </div>
                 `;
                 return;
@@ -498,7 +547,7 @@
                     `<span class="text-[10px] bg-brand-500/10 text-brand-400 px-2 py-0.5 rounded-md font-mono">${t}</span>`
                 ).join('');
 
-                const languageIcon = repo.language === "Python" ? "fa-brands fa-python text-yellow-500" : "fa-solid fa-terminal text-teal-400";
+                const languageIcon = repo.language === "Python" ? "fa-brands fa-python text-yellow-500" : "fa-solid fa-code text-teal-400";
 
                 grid.innerHTML += `
                     <div class="bg-darkCard border border-gray-800 rounded-xl p-5 flex flex-col justify-between hover:border-brand-500/40 transition-all duration-300 transform hover:-translate-y-1 relative">
@@ -516,7 +565,7 @@
                             <p class="text-xs text-gray-400 leading-relaxed line-clamp-3 mb-4">${repo.description}</p>
                         </div>
                         <div>
-                            <div class="flex flex-wrap gap-1.5 mb-4">
+                            <div class="flex flex-wrap gap-1.5 mb-4 font-mono">
                                 ${topicsHtml}
                             </div>
                             <a href="${repo.html_url}" target="_blank" class="w-full py-2 bg-gray-900 border border-gray-800 hover:border-brand-500 hover:bg-brand-500/10 rounded-lg text-xs text-white font-medium transition-all flex items-center justify-center gap-1.5">
@@ -528,7 +577,7 @@
             });
         }
 
-        // Live Chat Assistant using Gemini 3 Flash Model
+        // Live Chat Assistant using Gemini 3 Flash Model (Configured on Canvas)
         async function askGeminiAvatar(userQuery) {
             const chatLoader = document.getElementById('chat-loader');
             const chatMessages = document.getElementById('chat-messages');
@@ -537,16 +586,31 @@
             chatLoader.classList.remove('hidden');
 
             const systemPrompt = `
-You are a virtual representative/assistant of Rahul Sai Telikicharla, built to answer questions from recruiters and employers.
-Respond in professional, friendly, confident terms representing his direct skills and achievements. Keep answers concise, and bulleted where relevant.
+You are the interactive virtual representative for Rahul Sai Telikicharla, built to address hard inquiries from hiring managers and tech recruiters. 
+Highlight his extensive mastery of AI Engineering and Data Science. Speak confidently, professionally, and authoritatively.
 
-Rahul's Profile Summary:
-- Master of Computer Science student at Rice University (GPA 3.88/4.00), graduating May 2026.
-- AI Engineering Intern at HCA Healthcare (Remote, Nashville, TN) working on fine-tuning Gemma models for summaries, implementing spaCy model fine-tuning for medical vocabularies, and building RAG pipelines on GCP Vertex AI.
-- Former Machine Learning Engineer at eFunder.ai (Dubai), optimizing LSTM & ARIMA models to boost accuracy by 18% and cut investment risk by 22%.
-- Rich projects history: YOLOv8 plate detector with 95% accuracy running at 30 FPS, BERT/DistilBERT fine-tuning achieving 89% F1-score, custom CNN-LSTM handwritten script converter with 92% accuracy (published in IEEE InC4 2024).
+Knowledge and Credentials Base:
+- Current Location: Houston, TX. Email: sairahul.2162@gmail.com, Phone: (346) 503-8504.
+- Education: Master of Computer Science at Rice University (GPA 3.88/4.00, Jan 2025 - May 2026). Specialized in Advanced AI, Reinforcement Learning, Deep Learning, and LLMs.
+- Experience at HCA Healthcare (AI Engineering Intern, Feb 2026 - Present): 
+  - Fine-tuning Gemma models and spaCy models for customized medical summary generators.
+  - Mitigating LLM hallucinations and increasing mapping precision of clinical terms in patient notes.
+  - Curating deep clinical datasets from electronic health records (EHR) for model evaluation.
+  - Designing RAG pipelines utilizing LangChain and LlamaIndex frameworks.
+  - Serving Gemini models secure within GCP Vertex AI Model Garden.
+- Experience at Zelo (Dubai, UAE, Machine Learning Engineer / Data Scientist): 
+  - Developed predictive ARIMA & LSTM models, boosting forecasting accuracy by 18%.
+  - Built robust data-preprocessing pipelines on GCP using PySpark to manage over 500K records.
+  - Applied quantization and structural pruning to squeeze inference times by 15%.
+- Core Skill Stack: 
+  - Languages: Python, SQL, Java, C/C++, R.
+  - GenAI: LangChain, LlamaIndex, RAG architectures, prompt tuning.
+  - Deep Learning Frameworks: PyTorch, TensorFlow, Keras, Hugging Face, OpenCV.
+  - Models: Gemma, Gemini models, BERT, DistilBERT, ClinicalBERT, spaCy, YOLOv8.
+  - Systems: PySpark, SQL, GCP (Vertex AI, Cloud Engines), AWS, Docker, Git.
+  - Publications: Co-authored a hybrid CNN-LSTM handwritten script recognition paper published in IEEE InC4 2024.
 
-Directly speak as his virtual representative. Avoid saying "Based on his resume" too often; instead say "Rahul built...", "At HCA Healthcare, Rahul is working on...", etc.
+Rules: Avoid referencing resume documents or phrases like "according to his CV." Speak directly as his technical rep: "Rahul engineered...", "At Zelo, we processed...", "For HCA Healthcare, Rahul is active on...". Keep responses bulleted and highly detailed.
             `;
 
             const apiUrl = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key="; // Auto-configured API Key in Canvas runtime
@@ -565,15 +629,15 @@ Directly speak as his virtual representative. Avoid saying "Based on his resume"
                     body: JSON.stringify(payload)
                 });
 
-                if (!response.ok) throw new Error("Failed to communicate with AI endpoint.");
+                if (!response.ok) throw new Error("API call failure");
 
                 const result = await response.json();
-                const botResponse = result.candidates?.[0]?.content?.parts?.[0]?.text || "I was unable to retrieve a response from Rahul's core. Feel free to reach out directly to his email: sairahul.2162@gmail.com";
+                const botResponse = result.candidates?.[0]?.content?.parts?.[0]?.text || "I was unable to establish a secure link with Rahul's core database. Please email him at sairahul.2162@gmail.com";
                 
                 addChatMessage("bot", botResponse);
             } catch (error) {
-                console.error("AI Assistant Error:", error);
-                addChatMessage("bot", "Hello! I hit a connection issue contacting the AI core. For any direct questions, feel free to email Rahul directly at sairahul.2162@gmail.com!");
+                console.error("AI Assistant Failure:", error);
+                addChatMessage("bot", "Hello! I am having trouble contacting Rahul's virtual brain right now. For an immediate response, please connect directly with him via his email: sairahul.2162@gmail.com");
             } finally {
                 chatLoader.classList.add('hidden');
             }
@@ -588,7 +652,7 @@ Directly speak as his virtual representative. Avoid saying "Based on his resume"
 
             const iconDiv = document.createElement('div');
             iconDiv.className = `w-8 h-8 rounded-lg flex items-center justify-center text-xs self-end border ${
-                sender === 'user' ? 'bg-brand-500/10 border-brand-500/30 text-brand-500' : 'bg-gray-900 border-gray-800 text-brand-500'
+                sender === 'user' ? 'bg-brand-500/10 border-brand-500/30 text-brand-400' : 'bg-gray-900 border-gray-800 text-brand-400'
             }`;
             iconDiv.innerHTML = sender === 'user' ? `<i class="fa-solid fa-user"></i>` : `<i class="fa-solid fa-robot"></i>`;
 
@@ -624,7 +688,8 @@ Directly speak as his virtual representative. Avoid saying "Based on his resume"
                 const filtered = loadedRepos.filter(r => 
                     r.name.toLowerCase().includes(query) || 
                     r.description.toLowerCase().includes(query) ||
-                    r.language.toLowerCase().includes(query)
+                    r.language.toLowerCase().includes(query) ||
+                    r.topics.some(t => t.toLowerCase().includes(query))
                 );
                 renderRepos(filtered);
             });
