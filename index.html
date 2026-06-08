@@ -199,15 +199,15 @@
                         </span>
                     </div>
                     <ul class="space-y-3.5 text-gray-400 text-sm list-disc pl-4">
-                        <li>Engineered and <strong class="text-white">fine-tuned domain-specific LLMs </strong> for high-fidelity enterprise medical summary generation, systematically eliminating hallucinations.</li>
-                        <li>Configured and evaluated custom <strong class="text-white"> model fine-tuning</strong> to parse clinical terms, improving system-level accuracy for nurses' clinical documentation.</li>
+                        <li>Engineered and <strong class="text-white">fine-tuned domain-specific LLMs (Gemma)</strong> for high-fidelity enterprise medical summary generation, systematically eliminating hallucinations.</li>
+                        <li>Configured and evaluated custom <strong class="text-white">spaCy models fine-tuning</strong> to parse clinical terms, improving system-level accuracy for nurses' clinical documentation.</li>
                         <li>Utilized <strong class="text-white">GCP Vertex AI Model Garden</strong> to curate and test Gemini models, configuring optimized parameters for secure clinical RAG operations.</li>
                         <li>Led specialized <strong class="text-white">clinical data research and dataset curation pipelines</strong>, structuring messy, heterogeneous EHR records to prepare them for ClinicalBERT text mining and classification tasks.</li>
                         <li>Built end-to-end orchestration workflows using <strong class="text-white">LangChain and LlamaIndex</strong> for semantic indexing, vector store routing, and dynamic contextual chunking.</li>
                     </ul>
                 </div>
 
-                <!-- Experience Item 2: Zelo -->
+                <!-- Experience Item 2: eFunder.ai -->
                 <div class="relative">
                     <span class="absolute -left-[31px] sm:-left-[47px] top-1.5 w-5 h-5 rounded-full bg-accentTeal border-4 border-[#040810] flex items-center justify-center"></span>
                     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
@@ -223,7 +223,7 @@
                         <li>Developed and optimized predictive time-series architectures (LSTM, ARIMA) on <strong class="text-white">GCP</strong>, improving credit assessment forecasting accuracy by <strong class="text-white">18%</strong>.</li>
                         <li>Engineered scalable ETL pipeline modules utilizing <strong class="text-white">PySpark</strong> to clean and process <strong class="text-white">500K+ transactional records</strong>.</li>
                         <li>Applied ensemble learning paradigms and robust statistical validation routines, decreasing investment risk profiles by <strong class="text-white">22%</strong>.</li>
-                        <li>Integrated post-training model compression techniques including **quantization and structural pruning**, reducing production system latency by 15%.</li>
+                        <li>Integrated post-training model compression techniques including <strong class="text-white">quantization and structural pruning</strong>, reducing production system latency by 15%.</li>
                     </ul>
                 </div>
 
@@ -341,16 +341,16 @@
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
                 <div>
                     <h2 class="text-3xl font-extrabold text-white tracking-tight flex items-center gap-3">
-                        <i class="fa-brands fa-github text-brand-500"></i> Codebases & Research Projects
+                        <i class="fa-brands fa-github text-brand-500"></i> Live Repositories
                     </h2>
                     <p class="text-gray-400 mt-2 max-w-2xl">
-                        A synthesis of live open-source code repositories fetched straight from the GitHub API alongside featured machine learning architectures.
+                        A real-time synthesis of public codebases loaded directly from my GitHub profile via the GitHub API. No mock data or static placeholders.
                     </p>
                 </div>
                 <!-- Dynamic search/filter -->
                 <div class="flex items-center gap-3">
                     <div class="relative">
-                        <input type="text" id="repo-search" placeholder="Search stack or name..." class="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all w-64">
+                        <input type="text" id="repo-search" placeholder="Search language or title..." class="bg-gray-900 border border-gray-800 rounded-xl px-4 py-2 pl-10 text-sm text-white focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-transparent transition-all w-64">
                         <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-3.5 text-gray-500 text-xs"></i>
                     </div>
                     <button id="refresh-repos" class="p-2.5 bg-gray-900 border border-gray-800 rounded-xl hover:bg-gray-800 text-gray-400 hover:text-white transition-all" title="Reload repositories">
@@ -363,6 +363,15 @@
             <div id="repo-loader" class="flex flex-col items-center justify-center py-20 gap-4">
                 <div class="w-12 h-12 border-4 border-brand-500/20 border-t-brand-500 rounded-full animate-spin"></div>
                 <span class="text-sm text-gray-400">Connecting to GitHub REST API...</span>
+            </div>
+
+            <!-- Empty state fallback container -->
+            <div id="repo-empty-state" class="hidden flex flex-col items-center justify-center py-12 text-center text-gray-500">
+                <i class="fa-solid fa-folder-open text-4xl mb-4 text-gray-600 animate-pulse"></i>
+                <p class="text-md font-medium text-gray-400">No public repositories are currently active on this profile.</p>
+                <a href="https://github.com/rahulsai-mscs" target="_blank" class="mt-4 px-5 py-2 bg-gray-900 border border-gray-800 hover:border-brand-500 hover:text-white text-xs font-semibold rounded-xl transition-all">
+                    Visit GitHub Profile <i class="fa-solid fa-arrow-up-right-from-square ml-1.5"></i>
+                </a>
             </div>
 
             <!-- Repos Grid -->
@@ -469,24 +478,25 @@
     </footer>
 
     <script>
-        // Highly granular, expanded mock projects showing full range of tools, data curation and GenAI framework usage
         let loadedRepos = [];
 
-        // Fetch Repos from GitHub
+        // Fetch Repos from GitHub (No mocks or static custom structures are injected)
         async function fetchGitHubRepos() {
             const username = "rahulsai-mscs";
             const url = `https://api.github.com/users/${username}/repos?sort=updated&per_page=30`;
             const loader = document.getElementById('repo-loader');
             const grid = document.getElementById('repos-grid');
+            const emptyState = document.getElementById('repo-empty-state');
 
             try {
                 const response = await fetch(url);
-                if (!response.ok) throw new Error("API Limit reached");
+                if (!response.ok) throw new Error("API Limit reached or profile invalid");
                 const data = await response.json();
                 
-                const realRepos = data.map(repo => ({
+                // Map strictly from the raw live API response array
+                loadedRepos = data.map(repo => ({
                     name: repo.name,
-                    description: repo.description || "No description provided.",
+                    description: repo.description || "No public description available.",
                     language: repo.language || "Python",
                     html_url: repo.html_url,
                     stargazers_count: repo.stargazers_count,
@@ -494,26 +504,24 @@
                     topics: repo.topics || []
                 }));
 
-                const merged = [...mockRepos];
-                realRepos.forEach(real => {
-                    if (!merged.some(m => m.name.toLowerCase() === real.name.toLowerCase())) {
-                        merged.push(real);
-                    }
-                });
-
-                loadedRepos = merged;
-                renderRepos(loadedRepos);
+                if (loadedRepos.length === 0) {
+                    emptyState.classList.remove('hidden');
+                    grid.classList.add('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    grid.classList.remove('hidden');
+                    renderRepos(loadedRepos);
+                }
             } catch (err) {
-                console.warn("Using fallback dataset due to GitHub limits:", err);
-                loadedRepos = mockRepos;
-                renderRepos(loadedRepos);
+                console.warn("GitHub API error:", err);
+                emptyState.classList.remove('hidden');
+                grid.classList.add('hidden');
             } finally {
                 loader.classList.add('hidden');
-                grid.classList.remove('hidden');
             }
         }
 
-        // Render Repos Grid
+        // Render Repos Grid cleanly
         function renderRepos(repos) {
             const grid = document.getElementById('repos-grid');
             grid.innerHTML = '';
@@ -521,8 +529,8 @@
             if (repos.length === 0) {
                 grid.innerHTML = `
                     <div class="col-span-full text-center py-12 text-gray-600">
-                        <i class="fa-solid fa-folder-open text-3xl mb-3 block"></i>
-                        No repositories matching that search query.
+                        <i class="fa-solid fa-folder-open text-3xl mb-3 block animate-bounce"></i>
+                        No public repositories match your current filters.
                     </div>
                 `;
                 return;
@@ -563,7 +571,7 @@
             });
         }
 
-        // Live Chat Assistant using Gemini 3 Flash Model (Configured on Canvas)
+        // Live Chat Assistant using Gemini 3 Flash Model (Configured on Canvas runtime)
         async function askGeminiAvatar(userQuery) {
             const chatLoader = document.getElementById('chat-loader');
             const chatMessages = document.getElementById('chat-messages');
@@ -684,8 +692,10 @@ Rules: Avoid referencing resume documents or phrases like "according to his CV."
             document.getElementById('refresh-repos').addEventListener('click', () => {
                 const loader = document.getElementById('repo-loader');
                 const grid = document.getElementById('repos-grid');
+                const emptyState = document.getElementById('repo-empty-state');
                 loader.classList.remove('hidden');
                 grid.classList.add('hidden');
+                emptyState.classList.add('hidden');
                 fetchGitHubRepos();
             });
 
